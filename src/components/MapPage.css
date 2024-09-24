@@ -1,0 +1,512 @@
+/* General container */
+.map-page {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+/* Sidebar styles */
+.sidebar {
+  background-color: #fbfbfc;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+  z-index: 1000;
+  position: fixed;
+  height: 100%;
+  width: 250px;
+  left: 0;
+  top: 0;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.sidebar.collapsed {
+  width: 50px;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+/* Sidebar content */
+.sidebar-content {
+  padding: 20px;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar.collapsed .sidebar-content {
+  opacity: 0;
+  pointer-events: none; /* Prevent interaction with hidden content */
+}
+.sidebar.collapsed .sidebar-footer{
+  opacity:0;
+  pointer-events:none;
+}
+/* Toggle button */
+.toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: -25px;
+  background-color: #0a023a;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1100;
+  border-radius: 5px;
+}
+
+/* Login/signup button */
+.login-signup-btn {
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Search input inside sidebar */
+.search-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Map container */
+.map-and-ribbon {
+  flex: 1;
+  position: relative;
+  margin-left: 250px;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.map-container {
+  height: 100%;
+  width: 100%;
+  margin: 0; /* Ensure no white margins around the map */
+  padding: 0; /* Ensure no white padding around the map */
+  z-index: 0;
+}
+
+.sidebar.collapsed ~ .map-and-ribbon {
+  margin-left: 50px;
+}
+
+/* Ribbon styles */
+.ribbon {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  z-index: 1000;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.ribbon-search {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.fa-icon-marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+ 
+}
+/* Default tooltip style with transparent background */
+.hospital-label {
+  background-color: transparent;
+  padding: 3px;
+  border-radius: 3px;
+  font-size: 12px;
+  color: black;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Tooltip style on hover with white background */
+.hospital-label:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid lightgray; /* Optional: border to make it more visible */
+}
+
+
+
+
+
+/* General Styles */
+
+
+.map-and-ribbon {
+  display: flex;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Map Container */
+.map-container {
+  flex-grow: 1;
+  height: 100%;
+  width: 100%; /* 75% width for the map, 25% reserved for sidebar */
+  position: relative;
+}
+
+/* Sidebar for Facilities */
+
+
+.facility-item {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid lightgray;
+  transition: background-color 0.2s ease;
+}
+
+.facility-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* Search and Filter Ribbon */
+.search-and-filter-container {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 14px;
+  flex-grow: 1;
+}
+
+.search-icon {
+  margin-left: 8px;
+  color: #007bff;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-private,
+.btn-public {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.btn-private {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-private:hover {
+  background-color: #218838;
+}
+
+.btn-public {
+  background-color: #ffc107;
+  color: white;
+}
+
+.btn-public:hover {
+  background-color: #e0a800;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  z-index: 1100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+.modal .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.modal-header {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.modal-body {
+  font-size: 14px;
+}
+
+/* Tooltip for Hospital Labels */
+.leaflet-tooltip.hospital-label {
+  background-color: white;
+  border: 1px solid #007bff;
+  color: #007bff;
+  padding: 2px 5px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+/* Add this to your MapPage.css */
+
+/* Hidden sidebar */
+.facility-sidebar {
+  width: 0;
+  overflow: hidden;
+  transition: width 0.3s ease;
+}
+/* Sidebar Container */
+.hidden-sidebar {
+  width: 0; /* Start hidden */
+  overflow: hidden; /* Hide overflow when collapsed */
+  transition: width 0.3s ease, opacity 0.3s ease; /* Transition for width and opacity */
+  opacity: 0; /* Start with hidden opacity */
+  position: absolute; /* Positioning beside existing sidebar */
+  top: 0; /* Align to the top */
+  right: 0; /* Align to the right */
+  height: 100%; /* Full height */
+  background-color: #ffffff; /* Background color */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+  z-index: 1000; /* Ensure it is above other elements */
+}
+
+/* Sidebar when it's open */
+.facility-sidebar-open {
+  width: 300px; /* Sidebar width */
+  opacity: 1; /* Make visible when open */
+  height: 100vh; /* Full viewport height */
+  overflow-y: auto; /* Enable vertical scrolling when content overflows */
+  overflow-x: hidden; /* Disable horizontal scrolling */
+  padding: 15px; /* Padding for content */
+  background-color: #ffffff; /* Optional background color */
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+/* Scrollbar Styling for Sidebar */
+.facility-sidebar-open::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.facility-sidebar-open::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Thumb color */
+  border-radius: 4px; /* Rounded edges */
+}
+
+.facility-sidebar-open::-webkit-scr
+
+
+/* Scrollbar Styling for Sidebar */
+.hidden-sidebar::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.hidden-sidebar::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Thumb color */
+  border-radius: 4px; /* Rounded edges */
+}
+
+.hidden-sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa; /* Thumb color on hover */
+}
+
+/* Styling for each facility item */
+.facility-item {
+  padding: 15px; /* Padding for each item */
+  border-bottom: 1px solid #e0e0e0; /* Bottom border for separation */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.2s ease; /* Smooth transition for background */
+}
+
+.facility-item:hover {
+  background-color: #f0f0f0; /* Highlight color on hover */
+}
+
+.facility-item h3 {
+  margin: 0; /* Remove default margin */
+  font-size: 16px; /* Font size */
+  font-weight: 500; /* Medium weight */
+  color: #333; /* Text color */
+}
+
+/*side*/
+
+
+.sidebar-content h3 {
+  font-size: 14px; /* Reduced size */
+  margin: 5px 0;
+}
+
+.location-text {
+  font-size: 12px; /* Reduced size */
+  margin: 5px 0;
+}
+
+.layer-header, .filter-header {
+  font-size: 12px; /* Reduced size */
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.sidebar-button {
+  background-color: transparent;
+  border: none;
+  padding: 8px; /* Adjusted padding */
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 12px; /* Reduced size */
+}
+
+.sidebar-button:hover,
+.sidebar-button:focus {
+  background-color: rgba(0, 123, 255, 0.1); /* Highlight color */
+}
+
+.sidebar-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+}
+
+.powered-by {
+  font-size: 10px; /* Reduced size */
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .map-page {
+    flex-direction: column;
+   
+  }
+
+  .sidebar {
+    width: 0;
+    height: 0px;
+    bottom: 0;
+    left: 0;
+    top: 0;
+  }
+ 
+  
+  .sidebar.open {
+    height: 100%;
+    width: 60%;
+    z-index: 2000;
+  }
+
+  .sidebar.collapsed {
+    height: 60px;
+    width: 100%;
+  }
+
+  /* Sidebar content hidden when collapsed */
+  .sidebar.collapsed .sidebar-content {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .sidebar.collapsed ~ .map-and-ribbon {
+    margin-left: 0;
+  }
+  /* Full height for sidebar content on mobile */
+  .sidebar.open .sidebar-content {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Map container adjustments for mobile */
+  .map-and-ribbon {
+    margin-left: 100px;
+    margin-top: 60px;
+  }
+
+  /* Move ribbon below the sidebar on mobile */
+  .ribbon {
+    
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 900; /* Make sure the ribbon is below the sidebar when open */
+  }
+
+  /* Ensure the map zoom buttons adjust for mobile */
+  .leaflet-control-zoom {
+    z-index: 900; /* Ensure zoom controls do not overlap with sidebar */
+    margin-top: 70px; /* Adjust to be below the sidebar */
+  }
+
+  /* Toggle button adjustments for mobile */
+  .toggle-btn {
+    right: 20px;
+    top: 10px;
+    z-index: 1200; /* Keep the toggle button above everything */
+  }
+}
+

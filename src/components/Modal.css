@@ -1,0 +1,51 @@
+/* Modal backdrop */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 250px; /* Adjust based on your sidebar width */
+    width: calc(100% - 250px); /* Full screen width minus the sidebar */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it sits on top of the map */
+  }
+  
+  /* Modal content box */
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    width: 300px;
+    max-width: 90%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  /* Modal close button */
+  .modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Modal content list */
+  .modal-content ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .modal-content li {
+    margin: 10px 0;
+  }
+  
+  .modal-content li strong {
+    font-weight: bold;
+  }
+  

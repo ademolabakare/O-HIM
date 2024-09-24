@@ -1,0 +1,146 @@
+/* LoginSignup.css */
+
+/* General container for login/signup */
+.login-signup-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Left panel with deep blue background and branding */
+.left-panel {
+  background-color: #003366;
+  color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  text-align: center;
+}
+
+.left-panel h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.left-panel p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* Right panel with form and login functionality */
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.right-panel h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Form styling */
+.login-form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  position: relative;
+  margin: 10px 0;
+}
+
+.input-container .icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #007bff;
+}
+
+.login-form input {
+  padding: 15px 15px 15px 40px; /* Add padding to accommodate the icon */
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: white;
+  font-size: 1rem;
+  width: 100%; /* Ensure full width */
+  transition: border-color 0.3s ease;
+}
+
+.login-form input:focus {
+  border-color: #007bff; /* Blue border on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Eye icon for password visibility */
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Button styling */
+.login-form button {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Additional text */
+.forgot-password {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.signup-link {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+/* "Powered by Monarch" */
+.powered-by {
+  margin-top: 40px;
+}
+
+.monarch-logo {
+  font-family: 'Cursive', sans-serif;
+  font-size: 1.5rem;
+  color: #ff9900;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-signup-container {
+    flex-direction: column;
+  }
+
+  .left-panel, .right-panel {
+    flex: 1;
+    padding: 20px;
+  }
+
+  .login-form {
+    width: 100%;
+  }
+}
